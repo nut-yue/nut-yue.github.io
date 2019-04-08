@@ -2,19 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>归档 - nut-zone</title>
+<title>浅谈sql优化 - nut-zone</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="nut-zone">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+    <meta name="description" content="&amp;emsp;&amp;emsp;数据库查询效率的快慢是评价一个数据库设计好坏的直接判定依据，一个设计良好的数据库系统，受到多方面的因素影响，例如硬件配置、网络状况等。对于程序设计人员，提高数据库查询效率最有效的最简单的方式便是优化sql语句；&amp;emsp;&amp;emsp;造成数据库查询缓慢的常见原因：&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;1.查询数据的数据量庞大；&amp;emsp;&amp;emsp;&amp;emsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈sql优化">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/浅谈sql优化/index.html">
 <meta property="og:site_name" content="nut-zone">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;数据库查询效率的快慢是评价一个数据库设计好坏的直接判定依据，一个设计良好的数据库系统，受到多方面的因素影响，例如硬件配置、网络状况等。对于程序设计人员，提高数据库查询效率最有效的最简单的方式便是优化sql语句；&amp;emsp;&amp;emsp;造成数据库查询缓慢的常见原因：&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;1.查询数据的数据量庞大；&amp;emsp;&amp;emsp;&amp;emsp;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-04-08T14:08:33.572Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nut-zone">
+<meta name="twitter:title" content="浅谈sql优化">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;数据库查询效率的快慢是评价一个数据库设计好坏的直接判定依据，一个设计良好的数据库系统，受到多方面的因素影响，例如硬件配置、网络状况等。对于程序设计人员，提高数据库查询效率最有效的最简单的方式便是优化sql语句；&amp;emsp;&amp;emsp;造成数据库查询缓慢的常见原因：&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;1.查询数据的数据量庞大；&amp;emsp;&amp;emsp;&amp;emsp;">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -89,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="nut-zone" height="28">
+                <img src="/images/logo.svg" alt="浅谈sql优化" height="28">
             
             </a>
         </div>
@@ -99,7 +103,7 @@
                 
                 <a class="navbar-item" href="/">Home</a>
                 
-                <a class="navbar-item is-active" href="/archives">Archives</a>
+                <a class="navbar-item" href="/archives">Archives</a>
                 
                 <a class="navbar-item" href="/categories">Categories</a>
                 
@@ -134,50 +138,70 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
         
-<div class="card widget">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-08T13:25:43.000Z">2019-04-08</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 350 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                浅谈sql优化
+            
+        </h1>
+        <div class="content">
+            <a id="more"></a>
+<p>&emsp;&emsp;数据库查询效率的快慢是评价一个数据库设计好坏的直接判定依据，一个设计良好的数据库系统，受到多方面的因素影响，例如硬件配置、网络状况等。对于程序设计人员，提高数据库查询效率最有效的最简单的方式便是优化sql语句；<br><br>&emsp;&emsp;造成数据库查询缓慢的常见原因：<br><br>&emsp;&emsp;&emsp;&emsp;1.查询数据的数据量庞大；<br><br>&emsp;&emsp;&emsp;&emsp;2.数据库设计不合理；<br><br>&emsp;&emsp;&emsp;&emsp;3.sql语句书写不佳；<br><br>&emsp;&emsp;&emsp;&emsp;4.硬件性能、网络状况；<br><br>&emsp;&emsp;&emsp;&emsp;……<br><br>&emsp;&emsp;正是由于上述存在的问题，优化数据库应该从数据库设计、sql语句书写入手，从源头进行优化，尽量避免进行全表扫描，正确合理的使用索引，本系列文章将和大家共同探讨sql的优化；</p>
+<p>一.了解数据库表<br><br>&emsp;1.巧用explain:explain命令可以查看sql的执行计划，执行状态，例如是否使用索引，是否全表查询，也可以使用explain查看数据表的设计详情；<br><br><img src="https://github.com/nut-yue/nut-yue.github.io/blob/master/images/1.jpg" alt="使用explain查看表设计情况"></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2019
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-08T13:25:43.000Z">2019-04-08</time>
-                        <a href="/2019/04/08/浅谈sql优化/" class="has-link-black-ter is-size-6">浅谈sql优化</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-03T14:05:57.000Z">2019-04-03</time>
-                        <a href="/2019/04/03/MarkDown/" class="has-link-black-ter is-size-6">为什么程序员都应该使用MarkDown</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
         </div>
     </div>
 </div>
 
-    
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/03/MarkDown/">
+                <span class="level-item">为什么程序员都应该使用MarkDown</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
 </div>
                 
 
@@ -546,7 +570,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="nut-zone" height="28">
+                    <img src="/images/logo.svg" alt="浅谈sql优化" height="28">
                 
                 </a>
                 <p class="is-size-7">
