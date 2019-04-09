@@ -15,7 +15,7 @@
 <meta property="og:description" content="&amp;emsp;&amp;emsp;数据库查询效率的快慢是评价一个数据库设计好坏的直接判定依据，一个设计良好的数据库系统，受到多方面的因素影响，例如硬件配置、网络状况等。对于程序设计人员，提高数据库查询效率最有效的最简单的方式便是优化">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-08T14:36:19.152Z">
+<meta property="og:updated_time" content="2019-04-09T14:08:32.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈sql优化">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;数据库查询效率的快慢是评价一个数据库设计好坏的直接判定依据，一个设计良好的数据库系统，受到多方面的因素影响，例如硬件配置、网络状况等。对于程序设计人员，提高数据库查询效率最有效的最简单的方式便是优化">
@@ -150,7 +150,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 354 个字)
+                    5 分钟 读完 (大约 737 个字)
                 </span>
                 
                 
@@ -164,7 +164,7 @@
         </h1>
         <div class="content">
             <p>&emsp;&emsp;数据库查询效率的快慢是评价一个数据库设计好坏的直接判定依据，一个设计良好的数据库系统，受到多方面的因素影响，例如硬件配置、网络状况等。对于程序设计人员，提高数据库查询效率最有效的最简单的方式便是优化<br><a id="more"></a><br>sql语句；<br><br>&emsp;&emsp;造成数据库查询缓慢的常见原因：<br><br>&emsp;&emsp;&emsp;&emsp;1.查询数据的数据量庞大；<br><br>&emsp;&emsp;&emsp;&emsp;2.数据库设计不合理；<br><br>&emsp;&emsp;&emsp;&emsp;3.sql语句书写不佳；<br><br>&emsp;&emsp;&emsp;&emsp;4.硬件性能、网络状况；<br><br>&emsp;&emsp;&emsp;&emsp;……<br><br>&emsp;&emsp;正是由于上述存在的问题，优化数据库应该从数据库设计、sql语句书写入手，从源头进行优化，尽量避免进行全表扫描，正确合理的使用索引，本系列文章将和大家共同探讨sql的优化；</p>
-<p>一.了解数据库表<br><br>&emsp;1.巧用explain:explain命令可以查看sql的执行计划，执行状态，例如是否使用索引，是否全表查询，也可以使用explain查看数据表的设计详情；<br><br><img src="images/1.JPG" alt><br>&emsp;2.在select前加上explain命令可以显示数据库执行的具体情况<br><img src="images/2.JPG" alt></p>
+<p>一.了解数据库表<br><br>&emsp;1.巧用explain:explain命令可以查看sql的执行计划，执行状态，例如是否使用索引，是否全表查询，也可以使用explain查看数据表的设计详情；<br><br><img src="&quot;../../images/1.JPG&quot;" alt><br>&emsp;2.在select前加上explain命令可以显示数据库执行的具体情况<br><img src="&quot;../../images/2.JPG&quot;" alt><br><br>二.巧用索引<br><br>&emsp;&emsp;要想让一个查询语句执行效率更快。首要的，需要考虑能否添加索引。索引是一个特殊的文件，包含着对数据库表中所有记录的指针，它是对数据库表中一列或者多列的值进行排序的一种结构。<br><br>&emsp;&emsp;索引好比是图书馆里，每一本书上的编号，借阅者可以通过图书馆的馆藏搜索系统，快速的查找到对应的书籍的所在位置，大大减少了寻找的时间，提供搜索效率；<br><br>&emsp;&emsp;索引的优点:<br><br>&emsp;&emsp;&emsp;&emsp;1.通过添加唯一索引，可以保证数据唯一性；<br><br>&emsp;&emsp;&emsp;&emsp;2.可以大大提高数据的检索速度；<br><br>&emsp;&emsp;&emsp;&emsp;3.可以加速表和表之间的连接；<br><br>&emsp;&emsp;索引大体可以分为：普通索引、唯一索引、主键索引、全文索引<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">普通索引分为单列索引和多列索引：</span><br><span class="line">1.单列索引：一个索引只包含单个列，但是一个表中可以包含多个单列索引；</span><br><span class="line">2.多列索引：一个索引包含多个索引；</span><br><span class="line">创建普通索引：</span><br><span class="line">- create index 索引名 on 表名（列名）</span><br><span class="line">- alter table 表名 add unique index 索引名（列名）</span><br><span class="line">- create table 表名 （</span><br><span class="line">        列名 数据类型 约束，</span><br><span class="line">        unique index 索引名（列名）</span><br><span class="line">    ）</span><br></pre></td></tr></table></figure></p>
 
         </div>
         
