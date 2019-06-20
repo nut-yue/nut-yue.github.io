@@ -2,19 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类 - nut-zone</title>
+<title>nut-zone</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
+    <meta name="description" content="代理模式代理设计模式：为其他对象提供一种代理，以控制对这个对象的访问。使用代理模式创建代理对象，让代理对象控制目标对象的访问，并且可以在不改变目标对象的情况下，添加一些额外的功能。还隐藏被代理类的细节。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="nut-zone">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/06/20/代理模式/index.html">
 <meta property="og:site_name" content="nut-zone">
+<meta property="og:description" content="代理模式代理设计模式：为其他对象提供一种代理，以控制对这个对象的访问。使用代理模式创建代理对象，让代理对象控制目标对象的访问，并且可以在不改变目标对象的情况下，添加一些额外的功能。还隐藏被代理类的细节。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-03-29T04:24:42.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nut-zone">
+<meta name="twitter:description" content="代理模式代理设计模式：为其他对象提供一种代理，以控制对这个对象的访问。使用代理模式创建代理对象，让代理对象控制目标对象的访问，并且可以在不改变目标对象的情况下，添加一些额外的功能。还隐藏被代理类的细节。">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -89,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="nut-zone" height="28">
+                <img src="/images/logo.svg" alt height="28">
             
             </a>
         </div>
@@ -101,7 +105,7 @@
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
-                <a class="navbar-item is-active" href="/categories">Categories</a>
+                <a class="navbar-item" href="/categories">Categories</a>
                 
                 <a class="navbar-item" href="/tags">Tags</a>
                 
@@ -134,19 +138,87 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-20T04:16:00.554Z">2019-06-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 分钟 读完 (大约 922 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-            </ul>
+                
+            
+        </h1>
+        <div class="content">
+            <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理设计模式：为其他对象提供一种代理，以控制对这个对象的访问。使用代理模式创建代理对象，让代理对象控制目标对象的访问，并且可以在不改变目标对象的情况下，添加一些额外的功能。还隐藏被代理类的细节。<br><a id="more"></a></p>
+<h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p>UML类图：<br><img src="https://img-blog.csdnimg.cn/20190520202748791.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMDY0NjM1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>被代理的类<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 目标类，潘**</span><br><span class="line"> */</span><br><span class="line">public class PJL implements Methods &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 被代理的方法</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    public void he() &#123;</span><br><span class="line">        System.out.println(&quot;羞羞羞&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public void eat()&#123;</span><br><span class="line">        System.out.println(&quot;吃饭饭&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代理接口:<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 代理接口</span><br><span class="line"> */</span><br><span class="line">public interface Methods &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 羞羞的方法</span><br><span class="line">     */</span><br><span class="line">    public void he();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代理类：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 代理者，王*</span><br><span class="line"> */</span><br><span class="line">public class WP implements Methods &#123;</span><br><span class="line">    private Methods methods ;</span><br><span class="line">    @Override</span><br><span class="line">    public void he() &#123;</span><br><span class="line">        methods = new PJL();</span><br><span class="line">        System.out.println(&quot;给点小费呗&quot;);</span><br><span class="line">        methods.he();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试类：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 测试类，西门*</span><br><span class="line"> */</span><br><span class="line">public class XMQ &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        WP wp = new WP();</span><br><span class="line">        wp.he();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>   水浒传中这件是算是比较典型的代理模式了，西门<em>去找潘**，二人又不是夫妻，某些事情上西门</em>不能直接去找潘<em> </em>，所以就找代理者王婆，让王婆代替自己去找潘 <em> </em>，然后在某个地方碰面。本来西门<em>直接去找潘</em> <em>，潘</em> <em>是不会收钱的，但是王婆觉得我既然都帮你做这种事了自然要收点小费，小费的收取属于王婆，而不属于潘</em> *，这也就是额外的代码功能。</p>
+<h4 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h4><p>动态代理类在程序运行期间由JVM根据反射等机制动态的生成，所以不存在代理类的字节码文件。代理类和被代理类的关系是在程序运行时确定。</p>
+<p>被代理的类：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package moving;</span><br><span class="line">/**</span><br><span class="line"> * 目标类</span><br><span class="line"> * @author asus</span><br><span class="line"> */</span><br><span class="line">public class lucida implements lucidaMethod&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public String show(String name) &#123;</span><br><span class="line">		System.out.println(&quot;跳了一支《&quot;+name+&quot;》舞&quot;);</span><br><span class="line">		return &quot;跳完了&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public String sing(String name) &#123;</span><br><span class="line">		System.out.println(&quot;唱了一首《&quot;+name+&quot;》&quot;);</span><br><span class="line">		return &quot;唱完啦&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">   /**</span><br><span class="line">     *此方法不需要被代理，不需要抽成接口</span><br><span class="line">     */</span><br><span class="line">	public void eat()&#123;</span><br><span class="line">		System.out.println(&quot;吃饭&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>代理接口</strong>中需要被代理的方法的接口：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package moving;</span><br><span class="line">/**</span><br><span class="line"> * 需要被代理的方法</span><br><span class="line"> * @author asus</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public interface lucidaMethod &#123;</span><br><span class="line">	/**</span><br><span class="line">	 * 跳舞</span><br><span class="line">	 * @param name 舞蹈名字</span><br><span class="line">	 * @return  是否表演</span><br><span class="line">	 */</span><br><span class="line">	public String show(String name);</span><br><span class="line">	/**</span><br><span class="line">	 * 唱歌</span><br><span class="line">	 * @param name 歌曲名字</span><br><span class="line">	 * @return 是否唱歌</span><br><span class="line">	 */</span><br><span class="line">	public String sing(String name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代理类：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">package moving;</span><br><span class="line">import java.lang.reflect.InvocationHandler;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">import java.lang.reflect.Proxy;</span><br><span class="line">/**</span><br><span class="line"> * 代理类</span><br><span class="line"> * @author asus</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public class ProxyClass &#123;</span><br><span class="line">	/**创建被代理的对象，*/</span><br><span class="line">	private static final lucida lu = new lucida();</span><br><span class="line">	/**</span><br><span class="line">	 * 访问代理类的方法</span><br><span class="line">	 * @return  被代理的方法</span><br><span class="line">	 */</span><br><span class="line">	public static lucidaMethod getPoxyInstance()&#123;</span><br><span class="line">	                                  	//使用proxy中的方法获取代理类对象</span><br><span class="line">		lucidaMethod obj = (lucidaMethod)Proxy.newProxyInstance(</span><br><span class="line">				//第一个参数，定义代理类的类加载器</span><br><span class="line">				ProxyClass.class.getClassLoader(),</span><br><span class="line">				//第二个参数，代理类要实现的接口列表</span><br><span class="line">				lu.getClass().getInterfaces(), </span><br><span class="line">				/*</span><br><span class="line">				 *第三个参数</span><br><span class="line">				 * 拦截外界调用代理对象中的任何方法，</span><br><span class="line">				 * 当外界调用代理对象的的方法后，InvocationHandler类中的invoke方法自动执行</span><br><span class="line">				 */			</span><br><span class="line">				new InvocationHandler() &#123;</span><br><span class="line">					@Override</span><br><span class="line">					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">						//对show方法进行增强</span><br><span class="line">						if(&quot;show&quot;.equals(method.getName()))&#123;</span><br><span class="line">							System.out.println(&quot;先给钱，跳舞&quot;);</span><br><span class="line">						    return method.invoke(lu, args);</span><br><span class="line">						        //对sing方法进行增强</span><br><span class="line">						&#125;else if(&quot;sing&quot;.equals(method.getName()))&#123;</span><br><span class="line">							System.out.println(&quot;先给钱，然后才可以唱歌&quot;);</span><br><span class="line">						    return method.invoke(lu, args);</span><br><span class="line">						&#125;else&#123;</span><br><span class="line">							System.out.println(&quot;暂时没有代理此业务&quot;);</span><br><span class="line">						&#125;	</span><br><span class="line">						return null;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;);		</span><br><span class="line">		return obj;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结语：未完待续吧，等领悟的更加透彻后，再做修改。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
         </div>
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/20/装饰者模式/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item"></span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/05/26/Mybatis Plus 基础使用手册/">
+                <span class="level-item"></span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
@@ -672,7 +744,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="nut-zone" height="28">
+                    <img src="/images/logo.svg" alt height="28">
                 
                 </a>
                 <p class="is-size-7">

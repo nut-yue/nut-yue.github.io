@@ -2,19 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类 - nut-zone</title>
+<title>nut-zone</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
+    <meta name="description" content="初始装饰者模式定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="nut-zone">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/06/20/装饰者模式/index.html">
 <meta property="og:site_name" content="nut-zone">
+<meta property="og:description" content="初始装饰者模式定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-04-21T04:22:08.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nut-zone">
+<meta name="twitter:description" content="初始装饰者模式定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -89,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="nut-zone" height="28">
+                <img src="/images/logo.svg" alt height="28">
             
             </a>
         </div>
@@ -101,7 +105,7 @@
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
-                <a class="navbar-item is-active" href="/categories">Categories</a>
+                <a class="navbar-item" href="/categories">Categories</a>
                 
                 <a class="navbar-item" href="/tags">Tags</a>
                 
@@ -134,19 +138,82 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-20T04:16:02.779Z">2019-06-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 418 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-            </ul>
+                
+            
+        </h1>
+        <div class="content">
+            <h3 id="初始装饰者模式"><a href="#初始装饰者模式" class="headerlink" title="初始装饰者模式"></a>初始装饰者模式</h3><p>定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。<br><a id="more"></a><br><strong>重点</strong>：装饰者与被装饰者拥有共同的基类，<strong>继承的目的是继承类型，而不是行为。</strong></p>
+<p>代码实现：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 被装饰者</span><br><span class="line"> */</span><br><span class="line">public interface Eat &#123;</span><br><span class="line">    public abstract void eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>装饰者<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 装饰者</span><br><span class="line"> * @author asus</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public abstract class AEat implements Eat&#123;</span><br><span class="line">	private Eat eat;</span><br><span class="line">	public AEat(Eat eat) &#123;</span><br><span class="line">		this.eat=eat;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		eat.eat();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对装饰者AEat的一个细化<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 装饰者</span><br><span class="line"> */</span><br><span class="line">public class BEat extends AEat&#123;</span><br><span class="line">	public BEat(Eat eat) &#123;</span><br><span class="line">		super(eat);</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		super.eat();</span><br><span class="line">		System.out.println(&quot;加点醋！&quot;);	</span><br><span class="line">	&#125;</span><br><span class="line">/**</span><br><span class="line"> * 装饰者</span><br><span class="line"> */</span><br><span class="line">public class CEat extends AEat &#123;</span><br><span class="line">	public CEat(Eat eat) &#123;</span><br><span class="line">		super(eat);</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		super.eat();;</span><br><span class="line">		System.out.println(&quot;多放辣椒&quot;);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 装饰者</span><br><span class="line"> */</span><br><span class="line">public class DEat extends AEat&#123;</span><br><span class="line">	public DEat(Eat eat) &#123;</span><br><span class="line">		super(eat);</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		super.eat();;</span><br><span class="line">		System.out.println(&quot;今天吃鸡&quot;);	</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 被装饰者的实现类，本身就有方式的实现</span><br><span class="line"> */</span><br><span class="line">public class TsetEat implements Eat&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		System.out.println(&quot;我今天吃什么呢？&quot;);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 测试</span><br><span class="line"> */</span><br><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		//创建了一个吃的类，但是不满意现有的行为，还要对这个吃类进行装饰</span><br><span class="line">		Eat eat = new TsetEat();</span><br><span class="line">		//对eat的装饰，可以随意组合装饰者，执行的结果也将不一样。</span><br><span class="line">		Eat e = new CEat(new BEat(new DEat(eat)));</span><br><span class="line">		e.eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br><img src="https://img-blog.csdnimg.cn/20190330150410548.png" alt="在这里插入图片描述"></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
         </div>
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/20/索引和视图/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item"></span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/20/代理模式/">
+                <span class="level-item"></span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
@@ -672,7 +739,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="nut-zone" height="28">
+                    <img src="/images/logo.svg" alt height="28">
                 
                 </a>
                 <p class="is-size-7">
