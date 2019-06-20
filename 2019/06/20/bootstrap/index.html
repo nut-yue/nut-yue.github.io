@@ -2,19 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>归档: 2019/4 - nut-zone</title>
+<title>nut-zone</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
+    <meta name="description" content="updated: 2019-03-19 15:25:21@TOC bootstrap table使用总结使用bootstrap table可以很方便的开发后台表格，对数据进行异步更新，编辑。下面就来介绍一下bootstrap table的详细使用方法：">
+<meta property="og:type" content="article">
 <meta property="og:title" content="nut-zone">
-<meta property="og:url" content="http://yoursite.com/archives/2019/04/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/06/20/bootstrap/index.html">
 <meta property="og:site_name" content="nut-zone">
+<meta property="og:description" content="updated: 2019-03-19 15:25:21@TOC bootstrap table使用总结使用bootstrap table可以很方便的开发后台表格，对数据进行异步更新，编辑。下面就来介绍一下bootstrap table的详细使用方法：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-20T04:36:58.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nut-zone">
+<meta name="twitter:description" content="updated: 2019-03-19 15:25:21@TOC bootstrap table使用总结使用bootstrap table可以很方便的开发后台表格，对数据进行异步更新，编辑。下面就来介绍一下bootstrap table的详细使用方法：">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -89,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="nut-zone" height="28">
+                <img src="/images/logo.svg" alt height="28">
             
             </a>
         </div>
@@ -134,46 +138,97 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        四月 2019
-        </h3>
-        <div class="timeline">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-20T04:15:43.559Z">2019-06-20</time>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-08T13:25:43.000Z">2019-04-08</time>
-                        <a href="/2019/04/08/浅谈sql优化/" class="has-link-black-ter is-size-6">浅谈sql优化</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-04-03T14:05:57.000Z">2019-04-03</time>
-                        <a href="/2019/04/03/MarkDown/" class="has-link-black-ter is-size-6">为什么程序员都应该使用MarkDown</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 分钟 读完 (大约 2059 个字)
+                </span>
+                
+                
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                
+            
+        </h1>
+        <div class="content">
+            <p>updated: 2019-03-19 15:25:21<br>@<a href="bootstrap和layui表格使用方法">TOC</a></p>
+<h2 id="bootstrap-table使用总结"><a href="#bootstrap-table使用总结" class="headerlink" title="bootstrap table使用总结"></a>bootstrap table使用总结</h2><p>使用bootstrap table可以很方便的开发后台表格，对数据进行异步更新，编辑。下面就来介绍一下bootstrap table的详细使用方法：<br><a id="more"></a></p>
+<h3 id="1、导入相关的js包"><a href="#1、导入相关的js包" class="headerlink" title="1、导入相关的js包"></a>1、导入相关的js包</h3><p><strong>1、首先我们需要在bootstrap的官网上下载相应插件</strong><br>| 名称      | 版本         | 备注      |<br>|–|–|–|<br>| jquery  |3.3.1.min.js|必须(<a href="https://jquery.com/" target="_blank" rel="noopener">jquery官网地址</a>)<br>|bootstrap|最新即可|需要依赖jquery(<a href="http://www.bootcss.com/" target="_blank" rel="noopener">bootstrap官网地址</a>)<br>|bootstrap-table|最新即可|需要依赖bootstrap（<a href="https://bootstrap-table.com/" target="_blank" rel="noopener">bootstrap-table官网</a>）<br><strong>2、导入相关插件</strong></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../bootstrap-3.3.7-dist/css/bootstrap.min.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;../js/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;../js/bootstrap-table.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>3、在HTML中写上一个表格标签并给它一个id</strong></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;table id=&quot;table&quot;&gt;&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2、具体操作"><a href="#2、具体操作" class="headerlink" title="2、具体操作"></a>2、具体操作</h3><p><strong>1、通过js来操作该表格</strong></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">$(function () &#123;</span><br><span class="line">    $(&quot;#table&quot;).bootstrapTable(&#123;</span><br><span class="line">        url:&quot;../address/get&quot;,//请求的url地址</span><br><span class="line">        method:&quot;post&quot;,//请求方式</span><br><span class="line">        // striped:true,//是否显示行间隔色</span><br><span class="line">        pageSize:10,//每页显示的数量</span><br><span class="line">        pageList: [10,20],//提供选择每页显示多少条</span><br><span class="line">        showRefresh:false,//是否显示刷新按钮</span><br><span class="line">        cache:false,//是否使用缓存</span><br><span class="line">        showToggle:false,//是否显示详细视图和列表视图的切换按钮</span><br><span class="line">        pagination:true,//是否显示分页</span><br><span class="line">        hegiht:500,//表格的高度</span><br><span class="line">        pageNumber:1,//初始化显示第几页，默认第1页</span><br><span class="line">        singleSelect:true,//复选框只能选择一条记录</span><br><span class="line">        sidePagination : &apos;server&apos;,//分页显示方式，可以选择客户端和服务端（server|client）</span><br><span class="line">        contentType: &quot;application/x-www-form-urlencoded&quot;,//使用post请求时必须加上</span><br><span class="line">        dataType:&quot;json&quot;,//接收的数据类型</span><br><span class="line">        queryParamsType:&apos;limit&apos;,//参数格式，发送标准的Restful类型的请求</span><br><span class="line">        //得到查询参数即发给服务端的参数</span><br><span class="line">        queryParams:function(params)&#123;</span><br><span class="line">            var nowPage=params.offset;</span><br><span class="line">            return&#123;</span><br><span class="line">                page: (params.offset/params.limit)+1,//第几页</span><br><span class="line">                size: params.limit,//每页显示多少条</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        //回调函数</span><br><span class="line">        responseHandler:function(res)&#123;</span><br><span class="line">            console.log(res);//查看从服务端得到的数据</span><br><span class="line">            console.log(res.data.address.content);</span><br><span class="line">            return&#123;</span><br><span class="line">                &quot;total&quot;:res.data.address.totalElements,//当采用服务端分时必须给total赋值即从服务端得到总条数，表格将自动根据总条数进行分页</span><br><span class="line">                &quot;rows&quot;:res.data.address.content//每行显示的数据集合，注意必须是（total和rows不能是其他的字段，否则将不能显示数据或分页）</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        columns:[&#123;</span><br><span class="line">            field: &quot;select&quot;, checkbox: true&#125;,//开启选择框</span><br><span class="line">            &#123;field:&quot;name&quot;, title:&quot;姓名&quot;,sortable: true&#125;,//表头，其中field值是返回JSON格式中对应的属性</span><br><span class="line">            &#123;field:&quot;sex&quot;, title:&quot;性别&quot;,sortable: true&#125;,</span><br><span class="line">            &#123;field:&quot;email&quot;, title:&quot;Email&quot;,sortable: true&#125;,</span><br><span class="line">            &#123;field:&quot;qq&quot;, title:&quot;QQ号码&quot;,sortable: true&#125;,</span><br><span class="line">            &#123;field:&quot;company&quot;, title:&quot;工作单位&quot;,sortable: true&#125;,</span><br><span class="line">            &#123;field:&quot;address&quot;, title:&quot;地址&quot;,sortable: true&#125;,</span><br><span class="line">            &#123;field:&quot;postcode&quot;, title:&quot;邮编&quot;,sortable: true&#125;]</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当然bootstrap-table的表远不止这些设置，博主在这里就不给大家所有都列举出来了，如有需要请到<a href="https://bootstrap-table.com/" target="_blank" rel="noopener">bootstrap-table官网</a><br><strong>2、接下来将介绍如何获取选中表格的数据</strong></p>
+<blockquote>
+<p>onClickRow<br>jQuery事件： click-row.bs.table参数： row, $element, field<br>详情：<br>用户点击一行时触发，参数包含：<br>row：与单击的行对应的记录。<br>$element：tr元素。<br>field：与单击的单元格对应的字段名称。</p>
+</blockquote>
+<p>这是从官网上文档中截取关于点击某一行触发事件名，下面来看具体的代码</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">onClickRow:function (row,$element) &#123;</span><br><span class="line">                    //row为选中行的数据</span><br><span class="line">                    //$elementtr元素</span><br><span class="line">                    //进行相应的操作</span><br><span class="line">         			&#125;</span><br></pre></td></tr></table></figure>
+<p>以上就是关于bootstrap-table一些简单的操作，bootstrap-table的表格功能非常强大希望有兴趣的同学可以官网的文档中学习，最后我们来一张效果图吧！<br><img src="https://img-blog.csdnimg.cn/20190519161258966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4NzQ3Njk5,size_16,color_FFFFFF,t_70" alt="感觉bootstrap-table的表格还是非常好看"></p>
+<h2 id="layui表格使用总结"><a href="#layui表格使用总结" class="headerlink" title="layui表格使用总结"></a>layui表格使用总结</h2><p>layui表格组件是layui框架做得较好的一个模块，通过一些简单设置就可以渲染出功能强大的表格系统。下面我们将开始学习layui表格简单使用</p>
+<h3 id="1、导入相关的js包-1"><a href="#1、导入相关的js包-1" class="headerlink" title="1、导入相关的js包"></a>1、导入相关的js包</h3><p>1、layui表格的使用其实和bootstrap的表格使用都是大同小异，不同的是layui表格只需下载layui的开发文档即可没有单独的表格文档<br>| 名称      | 版本         | 备注      |<br>|–|–|–|<br>| jquery  |3.3.1.min.js|可以不用下载jquery英文在layui的官方插件中已经将jquery封装到了layui.all.js中(<a href="https://jquery.com/" target="_blank" rel="noopener">jquery官网地址</a>)<br>|layui|最新即可|需要依赖jquery(<a href="https://www.layui.com/" target="_blank" rel="noopener">layui官网地址</a>)</p>
+<p>2、在代码中导入相应的插件<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../../layui/css/layui.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;../../js/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;../../layui/layui.all.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3、和bootstrap-table的使用一样在HTML中插入一个表格标签</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;table class=&quot;layui-hide&quot; id=&quot;demo&quot; lay-filter=&quot;test&quot; lay-data=&quot;&#123;id: &apos;idTest&apos;&#125;&quot;&gt;&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<p>这里注意一下lay-data=”{id: ‘idTest’}”当需要获取选中表格数据时必须加上该属性当然idTest是可以随便取名</p>
+<h3 id="2、具体使用"><a href="#2、具体使用" class="headerlink" title="2、具体使用"></a>2、具体使用</h3><p>1、通过js来操作表格的样式以及渲染数据</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">layui.use(&apos;table&apos;, function()&#123;</span><br><span class="line">            var table = layui.table;</span><br><span class="line">            var laypage = layui.laypage;</span><br><span class="line">            table.render(&#123;</span><br><span class="line">                elem: &apos;#demo&apos;//表格的id值</span><br><span class="line">                ,id:&apos;idTest&apos;//当需要获取选中数据时所需的id即lay-data=&quot;&#123;id: &apos;idTest&apos;&#125;&quot;中的idTest，注意这里的id不用写#</span><br><span class="line">                ,height: 350//表格的高度</span><br><span class="line">                ,url: &apos;../../servlet/insect/show&apos; //数据接口</span><br><span class="line">                ,method:&apos;post&apos;//请求方式</span><br><span class="line">                ,limit:100//每页显示的条数</span><br><span class="line">                ,limits:[10,20,30]//可选择的每页显示条数</span><br><span class="line">                //修改请求参数</span><br><span class="line">                ,request:&#123;</span><br><span class="line">                    pageName:&apos;pageNum&apos;//页码的参数名称，默认是page</span><br><span class="line">                    ,limitName:&apos;pageSize&apos;//每页显示数量参数名，默认是limit</span><br><span class="line">                &#125;</span><br><span class="line">                //发给服务端的其他参数</span><br><span class="line">                ,where:&#123;</span><br><span class="line">                    insectName:insectName,//采用键值对的方式发送</span><br><span class="line">                    hostName:hostName</span><br><span class="line">                &#125;</span><br><span class="line">                //处理数据回调函数</span><br><span class="line">                ,parseData: function(res)&#123; //res 即为原始返回的数据</span><br><span class="line">                    console.log(res)</span><br><span class="line">                    console.log(res.hasNextPage)</span><br><span class="line">                    return &#123;</span><br><span class="line">                        &quot;status&quot;: true, //解析接口状态</span><br><span class="line">                        &quot;count&quot;: res.total, //解析数据长度</span><br><span class="line">                        &quot;list&quot;: res.list //解析数据列表</span><br><span class="line">                    &#125;;</span><br><span class="line">                &#125;</span><br><span class="line">                //设置响应回来的数据参数名称和状态，它将对应上面回调函数中解析数据的参数名</span><br><span class="line">                ,response: &#123;</span><br><span class="line">                    statusName: &apos;status&apos; //规定数据状态的字段名称，默认：code</span><br><span class="line">                    ,statusCode: true //规定成功的状态码，默认：0</span><br><span class="line">                    ,msgName: &apos;msg&apos; //规定状态信息的字段名称，默认：msg</span><br><span class="line">                    ,countName: &apos;count&apos; //规定数据总数的字段名称，默认：count</span><br><span class="line">                    ,dataName: &apos;list&apos; //规定数据列表的字段名称，默认：data</span><br><span class="line">                &#125;</span><br><span class="line">                ,cols: [[ //表头</span><br><span class="line">                    &#123;type:&apos;radio&apos;&#125;//开启单选框</span><br><span class="line">                    ,&#123;field: &apos;id&apos;, title: &apos;id&apos;, sort: true,hide:true,toolbar: &apos;#barDemo&apos;&#125;</span><br><span class="line">                    ,&#123;field: &apos;name&apos;, title: &apos;名称&apos;, sort: true&#125;</span><br><span class="line">                    ,&#123;field: &apos;hostName&apos;, title: &apos;寄主&apos;,sort: true&#125;</span><br><span class="line">                    ,&#123;field: &apos;danger&apos;, title: &apos;主要危害&apos;, sort: true&#125;</span><br><span class="line">                ]]</span><br><span class="line">                ,page: true //开启分页</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p>2、学习完渲染表格下面我们来学习如何获取选中行的数据，不多说我们直接上代码。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var checkStatus = table.checkStatus(&apos;idTest&apos;);//这里的idTest位我们表格标签中设置lay-data=&quot;&#123;id: &apos;idTest&apos;&#125;&quot;中的idTest，别忘了在设置表格渲染中加入,id:&apos;idTest&apos;这里的id也是不需要#</span><br><span class="line">        console.log(checkStatus.data.length);</span><br><span class="line">        if (checkStatus.data.length == 0) &#123;</span><br><span class="line">            layer.open(&#123;</span><br><span class="line">                title: &apos;提示&apos;</span><br><span class="line">                ,content: &apos;请选中行&apos;</span><br><span class="line">            &#125;);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        var id=checkStatus.data[0].id;</span><br><span class="line">        console.log(id);</span><br><span class="line">        window.location.href=&quot;findInformation.html?&quot;+id;</span><br></pre></td></tr></table></figure>
+<p>看代码是不是很简单，我们只需要在我们需要传参的按钮上绑定一个点击事件我们就可以通过上面这段代码得到选中数据，我这里判断了一下是否选中了行，当没有选中时将弹出一个提示框，这里采用了layui另一个组件弹出层也是一个非常实用的组件，这里就不多呢介绍了，需要学习的同学可以官网上查看文档吧，也是相当的简单。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>bootstrap-table和layui表格都是非常强大，关于两者谁更好在这里不做评价，个人感觉bootstrap-table的文档可能难理解一点，因为bootstrap-table没有具体的实例需要自己去试一试才知道，而layui的文档是真的做的非常好，各种功能的实例做的也是非常好非常容易上手，但是个人觉得bootstrap-table的样式比layui要好看点。最后博主在这里只做了常用简单的介绍。希望对看到了同学有所帮助，如果大家需要具体项目的例子自可下面的Github地址下载：<br><a href="https://github.com/YCKOBE24/-" target="_blank" rel="noopener">layui项目使用下载地址</a><br><a href="https://github.com/YCKOBE24/bootstrap-table-" target="_blank" rel="noopener">bootstrap-table项目使用地址下载</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/20/代理模式/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item"></span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/05/26/Mybatis Plus 基础使用手册/">
+                <span class="level-item"></span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
     </div>
 </div>
 
@@ -704,7 +759,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="nut-zone" height="28">
+                    <img src="/images/logo.svg" alt height="28">
                 
                 </a>
                 <p class="is-size-7">
