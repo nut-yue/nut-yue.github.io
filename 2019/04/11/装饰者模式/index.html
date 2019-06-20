@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>bootstrap table使用总结 | nut-zone</title>
+  <title>初识装饰者模式 | nut-zone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="初始装饰者模式定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。">
+  <meta name="description" content="定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bootstrap table使用总结">
+<meta property="og:title" content="初识装饰者模式">
 <meta property="og:url" content="http://yoursite.com/2019/04/11/装饰者模式/index.html">
 <meta property="og:site_name" content="nut-zone">
-<meta property="og:description" content="初始装饰者模式定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。">
+<meta property="og:description" content="定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190330150410548.png">
-<meta property="og:updated_time" content="2019-06-20T05:34:08.707Z">
+<meta property="og:updated_time" content="2019-06-20T05:40:46.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bootstrap table使用总结">
-<meta name="twitter:description" content="初始装饰者模式定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。">
+<meta name="twitter:title" content="初识装饰者模式">
+<meta name="twitter:description" content="定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190330150410548.png">
   
     <link rel="alternative" href="/atom.xml" title="nut-zone" type="application/atom+xml">
@@ -167,7 +167,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      bootstrap table使用总结
+      初识装饰者模式
     </h1>
   
 
@@ -180,7 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="初始装饰者模式"><a href="#初始装饰者模式" class="headerlink" title="初始装饰者模式"></a>初始装饰者模式</h3><p>定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。<br><a id="more"></a><br><strong>重点</strong>：装饰者与被装饰者拥有共同的基类，<strong>继承的目的是继承类型，而不是行为。</strong></p>
+        <p>定义：动态地给一个对象添加一些额外的职责。也就是扩展功能，装饰者模式相对于继承产生子类更加灵活，便于代码的复用，就像彩虹（被装饰者），彩虹由好几种颜色（装饰者）组成，颜色可以随意排列、添加。<br><a id="more"></a><br><strong>重点</strong>：装饰者与被装饰者拥有共同的基类，<strong>继承的目的是继承类型，而不是行为。</strong></p>
 <p>代码实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 被装饰者</span><br><span class="line"> */</span><br><span class="line">public interface Eat &#123;</span><br><span class="line">    public abstract void eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>装饰者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 装饰者</span><br><span class="line"> * @author asus</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public abstract class AEat implements Eat&#123;</span><br><span class="line">	private Eat eat;</span><br><span class="line">	public AEat(Eat eat) &#123;</span><br><span class="line">		this.eat=eat;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		eat.eat();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>对装饰者AEat的一个细化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 装饰者</span><br><span class="line"> */</span><br><span class="line">public class BEat extends AEat&#123;</span><br><span class="line">	public BEat(Eat eat) &#123;</span><br><span class="line">		super(eat);</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		super.eat();</span><br><span class="line">		System.out.println(&quot;加点醋！&quot;);	</span><br><span class="line">	&#125;</span><br><span class="line">/**</span><br><span class="line"> * 装饰者</span><br><span class="line"> */</span><br><span class="line">public class CEat extends AEat &#123;</span><br><span class="line">	public CEat(Eat eat) &#123;</span><br><span class="line">		super(eat);</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		super.eat();;</span><br><span class="line">		System.out.println(&quot;多放辣椒&quot;);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 装饰者</span><br><span class="line"> */</span><br><span class="line">public class DEat extends AEat&#123;</span><br><span class="line">	public DEat(Eat eat) &#123;</span><br><span class="line">		super(eat);</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void eat() &#123;</span><br><span class="line">		super.eat();;</span><br><span class="line">		System.out.println(&quot;今天吃鸡&quot;);	</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -284,7 +284,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          bootstrap table使用总结
+          浅谈数据库
         
       </div>
     </a>
