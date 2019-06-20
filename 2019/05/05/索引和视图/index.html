@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | nut-zone</title>
+  <title>bootstrap table使用总结 | nut-zone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="nut-zone">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="初识索引和视图视图关键字：view视图在数据库管理系统中也是一个对象，以文件形式存在视图对应一个查询结果，只是从不同的角度看数据语法：create view 视图名字 as 查询语句;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bootstrap table使用总结">
+<meta property="og:url" content="http://yoursite.com/2019/05/05/索引和视图/index.html">
 <meta property="og:site_name" content="nut-zone">
+<meta property="og:description" content="初识索引和视图视图关键字：view视图在数据库管理系统中也是一个对象，以文件形式存在视图对应一个查询结果，只是从不同的角度看数据语法：create view 视图名字 as 查询语句;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-20T05:33:43.315Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nut-zone">
+<meta name="twitter:title" content="bootstrap table使用总结">
+<meta name="twitter:description" content="初识索引和视图视图关键字：view视图在数据库管理系统中也是一个对象，以文件形式存在视图对应一个查询结果，只是从不同的角度看数据语法：create view 视图名字 as 查询语句;">
   
     <link rel="alternative" href="/atom.xml" title="nut-zone" type="application/atom+xml">
   
@@ -154,238 +158,162 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-索引和视图" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      bootstrap table使用总结
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/05/索引和视图/" class="archive-article-date">
+
+        
+        <a href="/2019/05/05/索引和视图/" class="archive-article-date">
   	<time datetime="2019-05-05T14:05:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/05/索引和视图/">bootstrap table使用总结</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="初识索引和视图"><a href="#初识索引和视图" class="headerlink" title="初识索引和视图"></a>初识索引和视图</h2><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>关键字：view<br>视图在数据库管理系统中也是一个对象，以文件形式存在<br>视图对应一个查询结果，只是从不同的角度看数据<br>语法：create view 视图名字 as 查询语句;<br><a id="more"></a></p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>一种特殊的文件，它包含着对数据库表所有记录的引用指针，它是对数据库中一列或者多列的值进行排序的一种结构。<br>优点：<br>1、创建唯一索引，保证数据库中每一条数据的唯一性（实体完整性）<br>2、加快数据的检索速度。<br>3、加速表与表之间的连接。<br>4、使用分组和排序子句进行数据检索时，同样可以显著减少查询中分组和排序时间。<br>5、通过使用索引，可以在查询的过程中，使用优化器，提高系统的性能。<br><strong>普通索引</strong><br>基本索引，没有任何限制，索引分为单列索引和多列索引。<br>语法：<br>  创建：create index 索引名 on 表名(表中的列名)<br>  添加：alter table  表名  add index 索引名(列名)<br>创建表时添加索引：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table 表名（</span><br><span class="line">列名 列的数据类型 列的约束，</span><br><span class="line">index 索引名（列名）</span><br><span class="line">）</span><br></pre></td></tr></table></figure></p>
+<p><strong>唯一索引</strong>、<br>关键字 ：unique index<br>它与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。<br>如果是组合索引，则列值的组合必须唯一。<br><strong>主键索引</strong><br>它是一种特殊的唯一索引，不允许有空值，在创建主键时，会默认生成一个主键索引。<br><strong>全文索引</strong><br>现在的互联网上，很多网站都提供了全文搜索(全文检索)功能，浏览者可以通过输入关键字或者是短语来搜索特定的资料。<br>通常的做法是通过 select 查询的 like 语句来进行搜索，这一办法存在搜索不够精确、以及效率非常低下的缺点。<br>mysql 提供了一个全文索引功能，也就是把字段设置上fullText索引属性，然后通过select的match against语句进行查找。<br>mysql 支持全文索引和搜索功能，但是 fullText 索引仅能用于 myisam 引擎的表。<br>myisam 引擎支持全文检索（full text index），查询效率高。但是有局限，不支持事务和外键。<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.Create  fulltext index 索引名  on  表名（表中加索引的列）</span><br><span class="line">2.alter table  表名  add fulltext index 索引名(表中加索引的列)</span><br><span class="line">3. create table 表名（</span><br><span class="line">      列名 列的数据类型 列的约束，</span><br><span class="line">      fulltext 索引名（表中加索引的列）</span><br><span class="line">      ）</span><br></pre></td></tr></table></figure></p>
+<h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><p>存储引擎是MySQL特有的。<br>存储引擎的本质：<br>1、采用不同的技术想暑假存储在文件或者内存中。<br>2、每一种技术都有不同的储存机制，不同的存储机制提供不同的功能和能力。<br>3、通过选择不同的技术（不同的引擎），可以获得额外的速度或者功能，改善我们的应用。</p>
+<p>查看储存引擎：show engines\G<br>创建表时，显示的指定引擎：create table 表名()engine=引擎名称<br>默认引擎的修改：在my.ini配置文件中使用default-storage-engin选项指定<br>修改表的引擎：alter table 表名 engine = 引擎名称</p>
+<p>常用的储存引擎：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">MylSAM存储引擎</span><br><span class="line">  特性：</span><br><span class="line">     一、使用三个文件表示每个表：</span><br><span class="line">      1.格式文件—存储表的结构（mytable.frm）</span><br><span class="line">      2.数据文件—存储表的数据（mytable.MYD）</span><br><span class="line">      3.索引文件—存储表的索引（mytable.MYI）</span><br><span class="line">     二、可以压缩空间，节省内存。</span><br><span class="line">     </span><br><span class="line">InnoDB存储引擎（默认引擎）</span><br><span class="line">特性：</span><br><span class="line">  1.每个InnoDB表在数据库目录中以.frm格式文件表示。</span><br><span class="line">  2.InnoDB表空间tablespace被用于存储表的内容。</span><br><span class="line">  3.提供一组用来记录事物性活动的日志文件</span><br><span class="line">  4.用COMMIT(提交)、SAVEPOINT及ROLLBACK（回滚） 支持事物处理。</span><br><span class="line">  5.提供全部ACID兼容。</span><br><span class="line">  6.在MySQL服务器崩溃后提供自动恢复。</span><br><span class="line">  7.多版本（MVCC）和行级锁定。</span><br><span class="line">  8.支持外键以及引用的完整性，包括级联更新和删除。</span><br><span class="line">  </span><br><span class="line">MEMORY存储引擎</span><br><span class="line">使用MEMORY存储引擎的表，因为数据存储在内存中，且行的长度固定，</span><br><span class="line">所以使得MEMORY存储引擎非常快。</span><br><span class="line">特点：</span><br><span class="line">     1.在数据库目录内，每个表均以.frm格式文件表示。</span><br><span class="line">     2.表数据及索引被存储在内存中。</span><br><span class="line">     3.表级锁机制。</span><br><span class="line">     4.字段属性不能包含TEXT或BLOB字段。</span><br><span class="line"> MEMORY存储引擎以前被称为HEAP引擎</span><br></pre></td></tr></table></figure></p>
+<p>不同引擎的适用场景：<br>1、MyISAM存储引擎的表适合于大量的数据读而少量的数据更新的混合操作，MyISAMB表的另一种使用形式是使用压缩的只读表。<br>2、InnoDB存储引擎的表使用于含较多的数据更新操作，其行级锁机制和多版本的支持为数据读取和更新额混合提供了良好的并发机制。<br>3.MEMORY存储引擎存储费永久需要的数据，或者能够从基于磁盘的表中重新生成的数据</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/05/索引和视图/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/23/Mybatis Plus 基础使用手册/" class="archive-article-date">
-  	<time datetime="2019-04-23T14:05:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/23/Mybatis Plus 基础使用手册/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bootstrap table使用总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/23/Mybatis Plus 基础使用手册/">bootstrap table使用总结</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/22/数据库/" class="archive-article-date">
-  	<time datetime="2019-04-22T14:05:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/22/数据库/">bootstrap table使用总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/11/装饰者模式/" class="archive-article-date">
-  	<time datetime="2019-04-11T14:05:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/11/装饰者模式/">bootstrap table使用总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/11/bootstrap/" class="archive-article-date">
-  	<time datetime="2019-04-11T14:05:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/11/bootstrap/">bootstrap table使用总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/08/浅谈sql优化/" class="archive-article-date">
-  	<time datetime="2019-04-08T13:25:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/08/浅谈sql优化/">浅谈sql优化</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/03/MarkDown/" class="archive-article-date">
-  	<time datetime="2019-04-03T14:05:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/03/MarkDown/">为什么程序员都应该使用MarkDown</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/19/代理模式/" class="archive-article-date">
-  	<time datetime="2019-03-19T14:05:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/19/代理模式/">bootstrap table使用总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -408,8 +336,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
